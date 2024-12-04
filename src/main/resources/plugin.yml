@@ -1,0 +1,11 @@
+name: lightEssentials
+author: LightStudios
+version: '0.0.1'
+main: io.lightstudios.essentials.LightEssentials
+api-version: '1.21'
+depend: ["lightCore"]
+softdepend: [ ]
+loadbefore: [ ]
+libraries: [ ]
+#  - org.mariadb.jdbc:mariadb-java-client:3.5.0
+#  - com.zaxxer:HikariCP:6.0.0

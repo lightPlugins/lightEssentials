@@ -1,0 +1,9 @@
+version: 1
+prefix: "<gray>[<#ffdc73>LightCore<gray>] "
+noPermission: "<red>You do not have permission to use this command! You need <dark_red>#permission#"
+wrongSyntax: "<red>Wrong command syntax. <gray>Please use <red>#syntax#"
+noNumber: "<red>This is not a number! Please use valid numbers."
+playerNotFound: "<red>The player <dark_red>#player#<red> could not be found!"
+gameModeChange: "<gray>Your game mode has been set to <#ffdc73>#gamemode#<gray>."
+gameModeChangeOther: "<gray>The game mode of <#ffdc73>#player#<gray> has been set to <#ffdc73>#gamemode#<gray>."
+gameModeChangeTarget: "<gray>Your game mode has been set to <#ffdc73>#gamemode#<gray> by <#ffdc73>#player#<gray>."
