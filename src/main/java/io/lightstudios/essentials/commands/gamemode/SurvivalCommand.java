@@ -1,6 +1,7 @@
-package io.lightstudios.essentials.commands;
+package io.lightstudios.essentials.commands.gamemode;
 
 import io.lightstudios.core.LightCore;
+import io.lightstudios.core.util.LightSounds;
 import io.lightstudios.core.util.interfaces.LightCommand;
 import io.lightstudios.essentials.LightEssentials;
 import io.lightstudios.essentials.permissions.LightPermissions;
@@ -12,7 +13,7 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
-public class GamemodeCommand implements LightCommand {
+public class SurvivalCommand implements LightCommand {
 
     @Override
     public List<String> getSubcommand() {
@@ -21,12 +22,12 @@ public class GamemodeCommand implements LightCommand {
 
     @Override
     public String getDescription() {
-        return "Change your game mode to creative";
+        return "Change your game mode to survival";
     }
 
     @Override
     public String getSyntax() {
-        return "/gmc <player>";
+        return "/gms <player>";
     }
 
     @Override
@@ -36,7 +37,7 @@ public class GamemodeCommand implements LightCommand {
 
     @Override
     public String getPermission() {
-        return LightPermissions.CREATIVE_COMMAND.getPerm();
+        return LightPermissions.SURVIVAL_COMMAND.getPerm();
     }
 
     @Override
@@ -52,12 +53,12 @@ public class GamemodeCommand implements LightCommand {
     @Override
     public boolean performAsPlayer(Player player, String[] args) {
         if(args.length == 0) {
-            player.setGameMode(GameMode.CREATIVE);
+            player.setGameMode(GameMode.SURVIVAL);
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChange()
-                    .replace("#gamemode#", "Creative"));
-
+                            .replace("#gamemode#", "Survival"));
+            LightSounds.onSuccess(player);
             return false;
         }
 
@@ -67,22 +68,25 @@ public class GamemodeCommand implements LightCommand {
             if(target == null) {
                 LightCore.instance.getMessageSender().sendPlayerMessage(
                         player,
-                        LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound());
+                        LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound()
+                                .replace("#player#", args[0]));
+                LightSounds.onFail(player);
                 return false;
             }
 
-            target.setGameMode(GameMode.CREATIVE);
+            target.setGameMode(GameMode.SURVIVAL);
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChangeOther()
-                    .replace("#gamemode#", "Creative")
-                    .replace("#player#", target.getName()));
+                            .replace("#gamemode#", "Survival")
+                            .replace("#player#", target.getName()));
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     target,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChangeTarget()
-                    .replace("#gamemode#", "Creative")
-                    .replace("#player#", player.getName()));
-
+                            .replace("#gamemode#", "Survival")
+                            .replace("#player#", player.getName()));
+            LightSounds.onSuccess(player);
+            LightSounds.onSuccess(target);
             return false;
         }
 

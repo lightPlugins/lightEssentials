@@ -18,7 +18,26 @@ public class MessageConfig {
     public String wrongSyntax() { return config.getString("wrongSyntax"); }
     public String gameModeChange() { return config.getString("gameModeChange"); }
     public String playerNotFound() { return config.getString("playerNotFound"); }
+    public String worldNotFound() { return config.getString("worldNotFound"); }
     public String gameModeChangeOther() { return config.getString("gameModeChangeOther"); }
     public String gameModeChangeTarget() { return config.getString("gameModeChangeTarget"); }
+    public String changeSpeed() { return config.getString("changeSpeed"); }
+    public String maxOrMinSpeed() { return config.getString("maxOrMinSpeed"); }
+    public String changeSpeedOther() { return config.getString("changeSpeedOther"); }
+    public String changeSpeedTarget() { return config.getString("changeSpeedTarget"); }
+    public String toggleFly() { return config.getString("toggleFly"); }
+    public String toggleFlyOther() { return config.getString("toggleFlyOther"); }
+    public String toggleFlyTarget() { return config.getString("toggleFlyTarget"); }
+    public String heal() { return config.getString("heal"); }
+    public String healOther() { return config.getString("healOther"); }
+    public String healTarget() { return config.getString("healTarget"); }
+    public String day() { return config.getString("day"); }
+    public String dayWorld() { return config.getString("dayWorld"); }
+    public String night() { return config.getString("night"); }
+    public String nightWorld() { return config.getString("nightWorld"); }
+    public String morning() { return config.getString("morning"); }
+    public String morningWorld() { return config.getString("morningWorld"); }
+    public String tpHere() { return config.getString("tpHere"); }
+    public String tpHereTarget() { return config.getString("tpHereTarget"); }
 
 }

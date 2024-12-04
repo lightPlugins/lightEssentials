@@ -4,7 +4,17 @@ import io.lightstudios.core.LightCore;
 import io.lightstudios.core.commands.manager.CommandManager;
 import io.lightstudios.core.util.files.FileManager;
 import io.lightstudios.core.util.interfaces.LightCommand;
-import io.lightstudios.essentials.commands.GamemodeCommand;
+import io.lightstudios.essentials.commands.gamemode.AdventureCommand;
+import io.lightstudios.essentials.commands.gamemode.CreativeCommand;
+import io.lightstudios.essentials.commands.gamemode.SpectatorCommand;
+import io.lightstudios.essentials.commands.gamemode.SurvivalCommand;
+import io.lightstudios.essentials.commands.teleport.TpHereCommand;
+import io.lightstudios.essentials.commands.util.FlyCommand;
+import io.lightstudios.essentials.commands.util.HealCommand;
+import io.lightstudios.essentials.commands.util.SpeedCommand;
+import io.lightstudios.essentials.commands.world.DayCommand;
+import io.lightstudios.essentials.commands.world.MorningCommand;
+import io.lightstudios.essentials.commands.world.NightCommand;
 import io.lightstudios.essentials.configs.MessageConfig;
 import io.lightstudios.essentials.configs.SettingsConfig;
 import lombok.Getter;
@@ -48,7 +58,20 @@ public final class LightEssentials extends JavaPlugin {
     }
 
     private void loadCommands() {
-        new CommandManager(new ArrayList<>(List.of(new GamemodeCommand())), "gmc");
+        new CommandManager(new ArrayList<>(List.of(new CreativeCommand())), "gmc");
+        new CommandManager(new ArrayList<>(List.of(new SurvivalCommand())), "gms");
+        new CommandManager(new ArrayList<>(List.of(new AdventureCommand())), "gma");
+        new CommandManager(new ArrayList<>(List.of(new SpectatorCommand())), "gmsp");
+
+        new CommandManager(new ArrayList<>(List.of(new SpeedCommand())), "speed");
+        new CommandManager(new ArrayList<>(List.of(new FlyCommand())), "fly");
+        new CommandManager(new ArrayList<>(List.of(new HealCommand())), "heal");
+
+        new CommandManager(new ArrayList<>(List.of(new DayCommand())), "day");
+        new CommandManager(new ArrayList<>(List.of(new NightCommand())), "night");
+        new CommandManager(new ArrayList<>(List.of(new MorningCommand())), "morning");
+
+        new CommandManager(new ArrayList<>(List.of(new TpHereCommand())), "tphere");
     }
 
     private void generateConfigs() {
