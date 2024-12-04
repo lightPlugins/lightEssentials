@@ -20,6 +20,7 @@ public enum LightPermissions {
     DAY_COMMAND("lightessentials.command.admin.day"),
     NIGHT_COMMAND("lightessentials.command.admin.night"),
     TPHERE_COMMAND("lightessentials.command.admin.tphere"),
+    TP_COMMAND("lightessentials.command.admin.tp"),
             ;
 
     private final String perm;

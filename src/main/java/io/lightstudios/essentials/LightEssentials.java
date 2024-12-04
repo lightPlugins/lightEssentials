@@ -8,6 +8,7 @@ import io.lightstudios.essentials.commands.gamemode.AdventureCommand;
 import io.lightstudios.essentials.commands.gamemode.CreativeCommand;
 import io.lightstudios.essentials.commands.gamemode.SpectatorCommand;
 import io.lightstudios.essentials.commands.gamemode.SurvivalCommand;
+import io.lightstudios.essentials.commands.teleport.TpCommand;
 import io.lightstudios.essentials.commands.teleport.TpHereCommand;
 import io.lightstudios.essentials.commands.util.FlyCommand;
 import io.lightstudios.essentials.commands.util.HealCommand;
@@ -72,6 +73,7 @@ public final class LightEssentials extends JavaPlugin {
         new CommandManager(new ArrayList<>(List.of(new MorningCommand())), "morning");
 
         new CommandManager(new ArrayList<>(List.of(new TpHereCommand())), "tphere");
+        new CommandManager(new ArrayList<>(List.of(new TpCommand())), "tp");
     }
 
     private void generateConfigs() {

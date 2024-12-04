@@ -39,5 +39,6 @@ public class MessageConfig {
     public String morningWorld() { return config.getString("morningWorld"); }
     public String tpHere() { return config.getString("tpHere"); }
     public String tpHereTarget() { return config.getString("tpHereTarget"); }
+    public String tp() { return config.getString("tp"); }
 
 }
