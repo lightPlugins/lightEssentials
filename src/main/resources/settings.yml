@@ -29,6 +29,9 @@ teleport-system:
         # Send player Title
         # example: 'title;upperTitle;lowerTitle'
         - 'title;<gray>Teleport;<gray>in <#ffdc73>#time#<gray> seconds'
+        # Send a Sound
+        # example: 'sound;type;volume;pitch'
+        - 'sound;player_level_up;1.0,1.5'
         # Send a Chat message
         # example: 'chat;message'
         # - 'chat;<gray>You will be teleported in <#ffdc73>#time#<gray> seconds'
@@ -38,9 +41,6 @@ teleport-system:
         # Send a BossBar
         # example: 'bossbar;color;style;message'
         # - 'bossbar;yellow;solid;<gray>Teleport in <#ffdc73>#time#<gray> seconds'
-        # Send a Sound
-        # example: 'sound;type;volume;pitch'
-        # - 'sound;player_level_up;1.0,1.0'
   # On Teleport to a warp location
   warp:
     warmup: 5
