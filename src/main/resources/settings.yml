@@ -3,6 +3,18 @@
 # Possible languages: en, de
 language: en
 # How the teleport system works
+commands:
+  gamemode-creative: gmc
+  gamemode-survival: gms
+  gamemode-spectator: gmsp
+  gamemode-adventure: gma
+  heal: heal
+  feed: feed
+  speed: speed
+  fly: fly
+  day: day
+  night: night
+  morning: morning
 teleport-system:
   # The teleport request system
   # Triggert when a player sends a teleport request
