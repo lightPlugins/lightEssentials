@@ -17,6 +17,8 @@ toggleFlyOther: "<gray>The fly of <#ffdc73>#player#<gray> are toggled <#ffdc73>#
 toggleFlyTarget: "<gray>Your fly are toggled <#ffdc73>#state#<gray> by <#ffdc73>#player#<gray>."
 heal: "<gray>You have been healed."
 healOther: "<gray>The player <#ffdc73>#player#<gray> has been healed."
+feed: "<gray>You have been fed."
+feedOther: "<gray>The player <#ffdc73>#player#<gray> has been fed."
 healTarget: "<gray>You have been healed by <#ffdc73>#player#<gray>."
 day: "<gray>The time has been set to day."
 dayWorld: "<gray>The time in the world <#ffdc73>#world#<gray> has been set to day."
@@ -27,3 +29,4 @@ morningWorld: "<gray>The time in the world <#ffdc73>#world#<gray> has been set t
 tpHere: "<gray>The player <#ffdc73>#player#<gray> has been teleported to you."
 tpHereTarget: "<gray>You have been teleported to <#ffdc73>#player#<gray>."
 tp: "<gray>You have been teleported to <#ffdc73>#player#<gray>."
+setSpawn: "<gray>The spawn has been set for world <#ffdc73>#world#<gray>."

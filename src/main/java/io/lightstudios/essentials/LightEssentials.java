@@ -10,6 +10,7 @@ import io.lightstudios.essentials.commands.gamemode.SpectatorCommand;
 import io.lightstudios.essentials.commands.gamemode.SurvivalCommand;
 import io.lightstudios.essentials.commands.teleport.TpCommand;
 import io.lightstudios.essentials.commands.teleport.TpHereCommand;
+import io.lightstudios.essentials.commands.util.FeedCommand;
 import io.lightstudios.essentials.commands.util.FlyCommand;
 import io.lightstudios.essentials.commands.util.HealCommand;
 import io.lightstudios.essentials.commands.util.SpeedCommand;
@@ -67,6 +68,7 @@ public final class LightEssentials extends JavaPlugin {
         new CommandManager(new ArrayList<>(List.of(new SpeedCommand())), "speed");
         new CommandManager(new ArrayList<>(List.of(new FlyCommand())), "fly");
         new CommandManager(new ArrayList<>(List.of(new HealCommand())), "heal");
+        new CommandManager(new ArrayList<>(List.of(new FeedCommand())), "feed");
 
         new CommandManager(new ArrayList<>(List.of(new DayCommand())), "day");
         new CommandManager(new ArrayList<>(List.of(new NightCommand())), "night");

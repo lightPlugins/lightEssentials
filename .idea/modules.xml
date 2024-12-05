@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/lightEssentials.iml" filepath="$PROJECT_DIR$/lightEssentials.iml" />
       <module fileurl="file://$PROJECT_DIR$/lightessentials.iml" filepath="$PROJECT_DIR$/lightessentials.iml" />
     </modules>
   </component>

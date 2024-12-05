@@ -17,10 +17,12 @@ public enum LightPermissions {
     SPEED_COMMAND("lightessentials.command.admin.speed"),
     FLY_COMMAND("lightessentials.command.admin.fly"),
     HEAL_COMMAND("lightessentials.command.admin.heal"),
+    FEED_COMMAND("lightessentials.command.admin.feed"),
     DAY_COMMAND("lightessentials.command.admin.day"),
     NIGHT_COMMAND("lightessentials.command.admin.night"),
     TPHERE_COMMAND("lightessentials.command.admin.tphere"),
     TP_COMMAND("lightessentials.command.admin.tp"),
+    SET_SPAWN_COMMAND("lightessentials.command.admin.setspawn"),
             ;
 
     private final String perm;

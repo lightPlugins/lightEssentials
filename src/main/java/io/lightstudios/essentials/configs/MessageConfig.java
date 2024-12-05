@@ -30,6 +30,8 @@ public class MessageConfig {
     public String toggleFlyTarget() { return config.getString("toggleFlyTarget"); }
     public String heal() { return config.getString("heal"); }
     public String healOther() { return config.getString("healOther"); }
+    public String feed() { return config.getString("feed"); }
+    public String feedOther() { return config.getString("feedOther"); }
     public String healTarget() { return config.getString("healTarget"); }
     public String day() { return config.getString("day"); }
     public String dayWorld() { return config.getString("dayWorld"); }
@@ -40,5 +42,6 @@ public class MessageConfig {
     public String tpHere() { return config.getString("tpHere"); }
     public String tpHereTarget() { return config.getString("tpHereTarget"); }
     public String tp() { return config.getString("tp"); }
+    public String setSpawn() { return config.getString("setSpawn"); }
 
 }
