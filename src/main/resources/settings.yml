@@ -20,22 +20,14 @@ teleport-system:
   # Triggert when a player sends a teleport request
   teleport-request:
     # The time in seconds the player has to wait until the teleport is executed
+    # 0 = no warmup
     warmup: 5
+    # Player with this permission can bypass the warmup
+    bypass-permission: 'lightessentials.teleport.warmup.bypass'
     # If the teleport request should be canceled when the player moves
     cancel-on-move: true
-    # The transition of the teleport request
-    # If enabled, the player will be teleported after the transition warmup time
-    # The Transition picture is displayed in the middle of the screen (for example a Black screen)
-    # IMPORTANT: You need a custom resource pack for this feature
-    # INFO: IF you use NEXO or ItemsAdder you can use the provided placeholder from
-    #       PlaceholderAPI:
-    #       - ItemsAdder: %img_<imgNameSpace>%
-    #       - NEXO: %nexo_<imgNameSpace>%
-    transition:
-      enabled: false
-      warmup: 2
-      transition-picture: '%img_transition%'
     # The action the player should see during the teleport request
+    # requires warmup greater than 0
     counter:
       actions:
         # Send player Title
@@ -43,7 +35,7 @@ teleport-system:
         - 'title;<gray>Teleport;<gray>in <#ffdc73>#time#<gray> seconds'
         # Send a Sound
         # example: 'sound;type;volume;pitch'
-        - 'sound;player_level_up;1.0,1.5'
+        - 'play-sound;player_level_up;1.0,1.5'
         # Send a Chat message
         # example: 'chat;message'
         # - 'chat;<gray>You will be teleported in <#ffdc73>#time#<gray> seconds'
@@ -51,26 +43,5 @@ teleport-system:
         # example: 'actionbar;message'
         # - 'actionbar;<gray>Teleported in <#ffdc73>#time#<gray> seconds'
         # Send a BossBar
-        # example: 'bossbar;color;style;message'
-        # - 'bossbar;yellow;solid;<gray>Teleport in <#ffdc73>#time#<gray> seconds'
-  # On Teleport to a warp location
-  warp:
-    warmup: 5
-    cancel-on-move: true
-    title:
-      upper: "<gray>Teleport request"
-      lower: "<gray>from <#ffdc73>#player#"
-    transition:
-      enabled: false
-      warmup: 2
-  # On Teleport to a home location
-  home:
-    warmup: 5
-    cancel-on-move: true
-    title:
-      upper: "<gray>Teleport request"
-      lower: "<gray>from <#ffdc73>#player#"
-    transition:
-      enabled: false
-      warmup: 2
-      transition-picture: '%img_transition%'
+        # example: 'bossbar;color;message'
+        # - 'bossbar;yellow;<gray>Teleport in <#ffdc73>#time#<gray> seconds'

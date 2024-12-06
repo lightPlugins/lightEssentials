@@ -23,6 +23,15 @@ public enum LightPermissions {
     TPHERE_COMMAND("lightessentials.command.admin.tphere"),
     TP_COMMAND("lightessentials.command.admin.tp"),
     SET_SPAWN_COMMAND("lightessentials.command.admin.setspawn"),
+
+    /*
+        Player Command Permissions
+     */
+
+    TPA_COMMAND("lightessentials.command.player.tpa"),
+    TPA_ACCEPT_COMMAND("lightessentials.command.player.tpa.accept"),
+    TPA_DENY_COMMAND("lightessentials.command.player.tpa.deny"),
+
             ;
 
     private final String perm;

@@ -88,16 +88,19 @@ public class SpeedCommand implements LightCommand {
                 LightCore.instance.getMessageSender().sendPlayerMessage(
                         player,
                         LightEssentials.instance.getMessages().changeSpeedOther()
-                                .replace("#speed#", String.valueOf(speed))
-                                .replace("#player#", target.getName())
+                                .stream().map(s -> s
+                                        .replace("#player#", target.getName())
+                                        .replace("#speed#", String.valueOf(speed)))
+                                .toList()
                 );
 
                 LightCore.instance.getMessageSender().sendPlayerMessage(
                         target,
                         LightEssentials.instance.getMessages().changeSpeedTarget()
-                                .replace("#speed#", String.valueOf(speed))
-                                .replace("#player#", player.getName())
-                );
+                                .stream().map(s -> s
+                                        .replace("#speed#", String.valueOf(speed))
+                                        .replace("#player#", player.getName()))
+                                .toList());
 
                 LightSounds.onSuccess(player);
                 LightSounds.onSuccess(target);
@@ -111,8 +114,9 @@ public class SpeedCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.instance.getMessages().changeSpeed()
-                            .replace("#speed#", String.valueOf(speed))
-            );
+                            .stream().map(s -> s
+                                    .replace("#speed#", String.valueOf(speed)))
+                            .toList());
             LightSounds.onSuccess(player);
 
         }

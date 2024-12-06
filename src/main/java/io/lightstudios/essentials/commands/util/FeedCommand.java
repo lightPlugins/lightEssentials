@@ -70,7 +70,9 @@ public class FeedCommand implements LightCommand {
             target.setFoodLevel(20);
             LightCore.instance.getMessageSender().sendPlayerMessage(player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().feedOther()
-                            .replace("#player#", target.getName()));
+                            .stream().map(s -> s
+                                    .replace("#player#", target.getName()))
+                            .toList());
             LightSounds.onSuccess(player);
             return true;
         }

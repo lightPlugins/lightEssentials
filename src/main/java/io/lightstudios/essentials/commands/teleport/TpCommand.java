@@ -57,7 +57,9 @@ public class TpCommand implements LightCommand {
             player.sendMessage("§cInvalid usage! Correct usage: §7" + getSyntax());
             LightCore.instance.getMessageSender().sendPlayerMessage(player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().wrongSyntax()
-                            .replace("#syntax#", getSyntax()));
+                            .stream().map(s -> s
+                                    .replace("#syntax#", getSyntax()))
+                                    .toList());
             LightSounds.onFail(player);
             return false;
         }
@@ -67,7 +69,9 @@ public class TpCommand implements LightCommand {
         if(target == null) {
             LightCore.instance.getMessageSender().sendPlayerMessage(player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound()
-                            .replace("#player#", args[0]));
+                            .stream().map(s -> s
+                                    .replace("#player#", args[0]))
+                            .toList());
             LightSounds.onFail(player);
             return false;
         }
@@ -76,7 +80,9 @@ public class TpCommand implements LightCommand {
 
         LightCore.instance.getMessageSender().sendPlayerMessage(player,
                 LightEssentials.messagePrefix + LightEssentials.instance.getMessages().tp()
-                        .replace("#player#", target.getName()));
+                        .stream().map(s -> s
+                                .replace("#player#", target.getName()))
+                        .toList());
         LightSounds.onSuccess(player);
 
         return false;

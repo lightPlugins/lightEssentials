@@ -57,7 +57,9 @@ public class FlyCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
             LightEssentials.messagePrefix + LightEssentials.instance.getMessages().toggleFly()
-                    .replace("#state#", state));
+                    .stream().map(s -> s
+                            .replace("#state#", state))
+                    .toList());
             LightSounds.onSuccess(player);
             return true;
         }
@@ -69,7 +71,9 @@ public class FlyCommand implements LightCommand {
                 LightCore.instance.getMessageSender().sendPlayerMessage(
                         player,
                         LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound()
-                                .replace("#player#", args[0]));
+                                .stream().map(s -> s
+                                        .replace("#player#", args[0]))
+                                .toList());
                 LightSounds.onFail(player);
                 return false;
             }
@@ -79,14 +83,18 @@ public class FlyCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().toggleFlyOther()
-                            .replace("#state#", state)
-                            .replace("#player#", target.getName()));
+                            .stream().map(s -> s
+                                    .replace("#state#", state)
+                                    .replace("#player#", target.getName()))
+                            .toList());
 
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     target,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().toggleFlyTarget()
-                            .replace("#state#", state)
-                            .replace("#player#", player.getName()));
+                            .stream().map(s -> s
+                                    .replace("#state#", state)
+                                    .replace("#player#", player.getName()))
+                            .toList());
 
             LightSounds.onSuccess(player);
             LightSounds.onSuccess(target);

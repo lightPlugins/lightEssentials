@@ -66,17 +66,23 @@ public class HealCommand implements LightCommand {
             if(target == null) {
                 LightCore.instance.getMessageSender().sendPlayerMessage(player,
                         LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound()
-                                .replace("#player#", args[0]));
+                                .stream().map(s -> s
+                                        .replace("#player#", args[0]))
+                                .toList());
                 LightSounds.onFail(player);
                 return false;
             }
             setHealth(target);
             LightCore.instance.getMessageSender().sendPlayerMessage(player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().healOther()
-                            .replace("#player#", target.getName()));
+                            .stream().map(s -> s
+                                    .replace("#player#", target.getName()))
+                            .toList());
             LightCore.instance.getMessageSender().sendPlayerMessage(target,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().healTarget()
-                            .replace("#player#", player.getName()));
+                            .stream().map(s -> s
+                                    .replace("#player#", player.getName()))
+                            .toList());
             LightSounds.onSuccess(player);
             LightSounds.onSuccess(target);
             return true;

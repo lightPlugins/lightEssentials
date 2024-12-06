@@ -55,7 +55,9 @@ public class SetWorldSpawnCommand implements LightCommand {
 
         LightCore.instance.getMessageSender().sendPlayerMessage(player,
                 LightEssentials.messagePrefix + LightEssentials.instance.getMessages().setSpawn()
-                        .replace("#world#", worldName));
+                        .stream().map(s -> s
+                                .replace("#world#", worldName))
+                        .toList());
         LightSounds.onSuccess(player);
 
         return false;

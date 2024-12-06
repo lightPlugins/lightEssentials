@@ -57,7 +57,9 @@ public class AdventureCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChange()
-                            .replace("#gamemode#", "Adventure"));
+                            .stream().map(str -> str
+                                    .replace("#gamemode#", "Adventure"))
+                            .toList());
             LightSounds.onSuccess(player);
 
             return false;
@@ -70,7 +72,9 @@ public class AdventureCommand implements LightCommand {
                 LightCore.instance.getMessageSender().sendPlayerMessage(
                         player,
                         LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound()
-                                .replace("#player#", args[0]));
+                                .stream().map(str -> str
+                                        .replace("#player#", args[0]))
+                                .toList());
                 LightSounds.onFail(player);
                 return false;
             }
@@ -79,13 +83,19 @@ public class AdventureCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChangeOther()
-                            .replace("#gamemode#", "Adventure")
-                            .replace("#player#", target.getName()));
+                            .stream()
+                            .map(str -> str
+                                    .replace("#gamemode#", "Adventure")
+                                    .replace("#player#", target.getName()))
+                            .toList());
+
             LightCore.instance.getMessageSender().sendPlayerMessage(
-                    target,
-                    LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChangeTarget()
-                            .replace("#gamemode#", "Adventure")
-                            .replace("#player#", player.getName()));
+                    player,
+                    LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChangeOther().stream()
+                            .map(line -> line
+                                    .replace("#gamemode#", "Adventure")
+                                    .replace("#player#", target.getName()))
+                            .toList());
             LightSounds.onSuccess(player);
             LightSounds.onSuccess(target);
             return false;

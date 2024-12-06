@@ -69,7 +69,9 @@ public class NightCommand implements LightCommand {
                 LightCore.instance.getMessageSender().sendPlayerMessage(
                         player,
                         LightEssentials.messagePrefix + LightEssentials.instance.getMessages().worldNotFound()
-                        .replace("#world#", strings[0]));
+                                .stream().map(s -> s
+                                        .replace("#world#", strings[0]))
+                                .toList());
                 return false;
             }
 
@@ -77,7 +79,9 @@ public class NightCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().nightWorld()
-                            .replace("#world#", strings[0]));
+                            .stream().map(s -> s
+                                    .replace("#world#", strings[0]))
+                            .toList());
             LightSounds.onSuccess(player);
             return false;
         }

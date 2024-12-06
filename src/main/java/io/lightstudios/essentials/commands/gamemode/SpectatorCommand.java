@@ -57,7 +57,9 @@ public class SpectatorCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChange()
-                            .replace("#gamemode#", "Spectator"));
+                            .stream().map(s -> s
+                                    .replace("#gamemode#", "Spectator"))
+                            .toList());
             LightSounds.onSuccess(player);
             return false;
         }
@@ -69,7 +71,9 @@ public class SpectatorCommand implements LightCommand {
                 LightCore.instance.getMessageSender().sendPlayerMessage(
                         player,
                         LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound()
-                                .replace("#player#", args[0]));
+                                .stream().map(s -> s
+                                        .replace("#player#", args[0]))
+                                .toList());
                 LightSounds.onFail(player);
                 return false;
             }
@@ -78,13 +82,17 @@ public class SpectatorCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChangeOther()
-                            .replace("#gamemode#", "Spectator")
-                            .replace("#player#", target.getName()));
+                            .stream().map(s -> s
+                                    .replace("#gamemode#", "Spectator")
+                                    .replace("#player#", target.getName()))
+                            .toList());
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     target,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().gameModeChangeTarget()
-                            .replace("#gamemode#", "Spectator")
-                            .replace("#player#", player.getName()));
+                            .stream().map(s -> s
+                                    .replace("#gamemode#", "Spectator")
+                                    .replace("#player#", player.getName()))
+                            .toList());
             LightSounds.onSuccess(player);
             LightSounds.onSuccess(target);
 

@@ -56,7 +56,9 @@ public class TpHereCommand implements LightCommand {
         if(args.length != 1) {
             LightCore.instance.getMessageSender().sendPlayerMessage(player,
                     LightEssentials.messagePrefix + LightEssentials.instance.getMessages().wrongSyntax()
-                            .replace("#syntax#", getSyntax()));
+                            .stream().map(s -> s
+                                    .replace("#syntax#", getSyntax()))
+                            .toList());
             return false;
         }
 
@@ -66,8 +68,9 @@ public class TpHereCommand implements LightCommand {
             LightCore.instance.getMessageSender().sendPlayerMessage(
                     player,
                    LightEssentials.messagePrefix + LightEssentials.instance.getMessages().playerNotFound()
-                            .replace("#player#", args[0])
-            );
+                           .stream().map(s -> s
+                                   .replace("#player#", args[0]))
+                           .toList());
             return false;
         }
 
@@ -76,14 +79,16 @@ public class TpHereCommand implements LightCommand {
         LightCore.instance.getMessageSender().sendPlayerMessage(
                 player,
                 LightEssentials.messagePrefix + LightEssentials.instance.getMessages().tpHere()
-                        .replace("#player#", target.getName())
-        );
+                        .stream().map(s -> s
+                                .replace("#player#", target.getName()))
+                        .toList());
 
         LightCore.instance.getMessageSender().sendPlayerMessage(
                 target,
                 LightEssentials.messagePrefix + LightEssentials.instance.getMessages().tpHereTarget()
-                        .replace("#player#", player.getName())
-        );
+                        .stream().map(s -> s
+                                .replace("#player#", player.getName()))
+                        .toList());
 
         LightSounds.onSuccess(player);
         LightSounds.onSuccess(target);

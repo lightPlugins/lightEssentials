@@ -4,6 +4,7 @@ import io.lightstudios.core.LightCore;
 import io.lightstudios.core.commands.manager.CommandManager;
 import io.lightstudios.core.util.files.FileManager;
 import io.lightstudios.core.util.interfaces.LightCommand;
+import io.lightstudios.essentials.cache.PlayerCache;
 import io.lightstudios.essentials.commands.gamemode.AdventureCommand;
 import io.lightstudios.essentials.commands.gamemode.CreativeCommand;
 import io.lightstudios.essentials.commands.gamemode.SpectatorCommand;
@@ -40,6 +41,8 @@ public final class LightEssentials extends JavaPlugin {
     private FileManager messageConfig;
     private FileManager settingsConfig;
 
+    private PlayerCache playerCache;
+
     @Override
     public void onLoad() {
         instance = this;
@@ -49,6 +52,7 @@ public final class LightEssentials extends JavaPlugin {
     public void onEnable() {
 
         LightCore.instance.getConsolePrinter().printInfo("Enabling LightEssentials");
+        this.playerCache = new PlayerCache();
         generateConfigs();
         loadCommands();
 
