@@ -18,7 +18,7 @@ public class MessageConfig {
 
     public int version() { return config.getInt("version"); }
 
-    public List<String> prefix() { return toStringList(config.get("prefix")); }
+    public String prefix() { return config.getString("prefix"); }
     public List<String> noPermission() { return toStringList(config.get("noPermission")); }
     public List<String> wrongSyntax() { return toStringList(config.get("wrongSyntax")); }
     public List<String> gameModeChange() { return toStringList(config.get("gameModeChange")); }
